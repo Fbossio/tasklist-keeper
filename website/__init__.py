@@ -11,8 +11,10 @@ def create_app():
     app = Flask(__name__, instance_relative_config=False)
     app.config.from_object('config.Config')
 
-    # Import classes from models.py
     from .models import User, Todo
+    from .views import views
+
+    app.register_blueprint(views, url_prefix='/')
 
     # Initialize Plugins
     db.init_app(app)
