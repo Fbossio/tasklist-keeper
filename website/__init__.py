@@ -13,8 +13,10 @@ def create_app():
 
     from .models import User, Todo
     from .views import views
+    from .auth import auth
 
     app.register_blueprint(views, url_prefix='/')
+    app.register_blueprint(auth, url_prefix='/')
 
     # Initialize Plugins
     db.init_app(app)
