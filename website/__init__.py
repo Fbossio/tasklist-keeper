@@ -11,6 +11,7 @@ def create_app():
     app = Flask(__name__, instance_relative_config=False)
     app.config.from_object('config.Config')
 
+    # Import classes from models.py
     from .models import User, Todo
 
     # Initialize Plugins
