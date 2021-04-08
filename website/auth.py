@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, render_template, url_for, request, flash
+from flask import Flask, Blueprint, render_template, url_for, request, flash, redirect
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from . import db
@@ -33,7 +33,8 @@ def sign_up():
             flash('User already exists!', category='error')
         else:
             new_user = User(name=name, email=email, password=generate_password_hash(
-                password1, method='sha256'))
+                password, method='sha256'))
+            flash('Account created!', category='success')
             return redirect(url_for('views.home'))
     else:
         flash_errors(form)
