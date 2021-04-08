@@ -1,33 +1,33 @@
-from flask_wtf import Form
-from wtforms import StringField
-from wtforms.validators import DataRequired, Email, Length
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, TextAreaField
+from wtforms.validators import DataRequired, InputRequired, Length, Email
 
 
-class Register(Form):
+class Register(FlaskForm):
     name = StringField(
-        'Name', validators=[DataRequired()]
+        'Name', validators=[DataRequired(), InputRequired()]
     )
     email = StringField(
-        'Email', validators=[DataRequired(), Email()]
+        'Email', validators=[DataRequired(), InputRequired(), Email()]
     )
-    password1 = StringField(
-        'Password', validators=[DataRequired()]
+    password1 = PasswordField(
+        'Password', validators=[DataRequired(), InputRequired(), Length(min=7)]
     )
-    password2 = StringField(
-        'Confirm Password', validators=[DataRequired()]
+    password2 = PasswordField(
+        'Confirm Password', validators=[DataRequired(), InputRequired()]
     )
 
 
-class Login(Form):
+class Login(FlaskForm):
     email = StringField(
-        'Email', validators=[DataRequired(), Email()]
+        'email', validators=[DataRequired(), InputRequired()]
     )
-    password = StringField(
-        'Password', validators=[DataRequired()]
+    password = PasswordField(
+        'password', validators=[DataRequired(), InputRequired()]
     )
 
 
-class Todo(Form):
+class Todo(FlaskForm):
     todo = TextAreaField(
-        'Add Todo', validators=[DataRequired()]
+        'todo', validators=[DataRequired()]
     )
