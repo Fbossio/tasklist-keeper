@@ -6,40 +6,37 @@
 
 <div class="row">
   <form class="col s12" method="POST">
+    {{ form.csrf_token }}
     <div class="row card-panel">
       <div class="row">
         <div class="input-field col s12">
           <label for="name">{{form.name.label}}</label>
-          {{ form.name(class_ = 'validate', autofocus = true) }}
+          {{ form.name(class_ = 'validate') }}
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
           <label for="email">{{form.email.label}}</label>
-          {{ form.email(class_ = 'validate', autofocus = true, type='email')}}
+          {{ form.email(class_ = 'validate', type='email')}}
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
           <label for="password1">{{form.password1.label}}</label>
-          {{ form.password1(class_ = 'validate', autofocus = true)}}
+          {{ form.password1(class_ = 'validate')}}
         </div>
       </div>
 
       <div class="row">
         <div class="input-field col s12">
           <label for="password2">{{form.password2.label}}</label>
-          {{ form.password2(class_ = 'validate', autofocus = true)}}
+          {{ form.password2(class_ = 'validate')}}
         </div>
       </div>
 
-      <input
-        type="submit"
-        name="Register"
-        class="btn waves-effect waves-light"
-      />
+      <button class="btn" type="submit">Sign-Up</button>
     </div>
   </form>
 </div>
