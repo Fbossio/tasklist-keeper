@@ -9,7 +9,7 @@ from .helpers import flash_errors
 auth = Blueprint('auth', __name__)
 
 
-@auth.route('/login', methods=['GET', 'POST'])
+@auth.route('/', methods=['GET', 'POST'])
 def login():
     form = Login()
     if form.validate_on_submit():
