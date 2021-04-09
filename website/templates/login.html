@@ -1,4 +1,29 @@
 {% extends "base.html" %} {% block title %} Home {% endblock %} {% block content
 %}
-<h1>Log in</h1>
+<div class="center-align">
+  <h5>Login</h5>
+</div>
+
+<div class="row">
+  <form class="col s12" method="POST">
+    {{ form.csrf_token }}
+    <div class="row card-panel">
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="email">{{form.email.label}}</label>
+          {{ form.email(class_ = 'validate', type='email')}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <label for="password1">{{form.password.label}}</label>
+          {{ form.password(class_ = 'validate')}}
+        </div>
+      </div>
+
+      <button class="btn" type="submit">Login</button>
+    </div>
+  </form>
+</div>
 {% endblock %}
