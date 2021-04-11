@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, TextAreaField
+from wtforms import StringField, PasswordField
 from wtforms.validators import DataRequired, InputRequired, Length, Email, EqualTo
 
 
@@ -20,14 +20,14 @@ class Register(FlaskForm):
 
 class Login(FlaskForm):
     email = StringField(
-        'email', validators=[DataRequired(), InputRequired()]
+        'Email', validators=[DataRequired(), InputRequired()]
     )
     password = PasswordField(
-        'password', validators=[DataRequired(), InputRequired()]
+        'Password', validators=[DataRequired(), InputRequired()]
     )
 
 
-class Todo(FlaskForm):
-    todo = TextAreaField(
-        'todo', validators=[DataRequired()]
+class Task(FlaskForm):
+    todo = StringField(
+        'Enter a new task', validators=[DataRequired(), InputRequired()]
     )

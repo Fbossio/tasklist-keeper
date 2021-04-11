@@ -19,45 +19,31 @@
     <title>{% block title %} {% endblock %}</title>
   </head>
   <body>
-    <!--
     <nav>
       <div class="nav-wrapper light-blue darken-2">
-        <a href="/" class="brand-logo"
-          ><i class="material-icons">event_note</i>Todo App</a
-        >
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="/">Home</a></li>
-          <li><a href="/logout">Logout</a></li>
-          <li><a href="/login">Login</a></li>
-          <li><a href="/sign-up">Sign-Up</a></li>
-        </ul>
-      </div>
-    </nav>
-    -->
-
-    <nav>
-      <div class="nav-wrapper light-blue darken-2">
-        <a href="#" class="brand-logo"
-          ><i class="material-icons">event_note</i>Todo App</a
-        >
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"
-          ><i class="material-icons">menu</i></a
-        >
-        <ul class="right hide-on-med-and-down">
-          {% if user.is_authenticated %}
-          <li><a href="/todo">Todos</a></li>
-          <li><a href="/logout">Logout</a></li>
-          {% else %}
-          <li><a href="/">Login</a></li>
-          <li><a href="/sign-up">Sign-Up</a></li>
-          {% endif %}
-        </ul>
+        <div class="container">
+          <a href="#" class="brand-logo"
+            ><i class="material-icons">event_note</i>Todo App</a
+          >
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+            ><i class="material-icons">menu</i></a
+          >
+          <ul class="right hide-on-med-and-down">
+            {% if user.is_authenticated %}
+            <!--<li><a href="/todo">Todos</a></li>-->
+            <li><a href="/logout">Logout</a></li>
+            {% else %}
+            <li><a href="/">Login</a></li>
+            <li><a href="/sign-up">Sign-Up</a></li>
+            {% endif %}
+          </ul>
+        </div>
       </div>
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
       {% if user.is_authenticated %}
-      <li><a href="/todo">Todos</a></li>
+      <!--<li><a href="/todo">Todos</a></li>-->
       <li><a href="/logout">Logout</a></li>
       {% else %}
       <li><a href="/">Login</a></li>
