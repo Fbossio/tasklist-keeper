@@ -68,3 +68,7 @@ html {
 .task-completed {
   text-decoration: line-through solid;
 }
+
+button > * {
+  pointer-events: none;
+}
