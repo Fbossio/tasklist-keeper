@@ -21,7 +21,7 @@
 
   <ul class="collection with-header col s6">
     <li class="collection-header"><h4>To Do List</h4></li>
-    {% for todo in user.todos %}
+    {% for d in data %}
     <li class="collection-item">
       <div class="row valign-wrapper">
         <div class="col s10">
@@ -37,17 +37,17 @@
               endif
               %}
               class="check-completed"
-              data-id="{{todo.id}}"
+              data-id="{{d.id}}"
             />
-            <span class="{% if todo.completed %} task-completed {% endif %}">
-              {{todo.task}}
+            <span class="{% if d.completed %} task-completed {% endif %}">
+              {{d.task}}
             </span>
           </label>
         </div>
         <div class="col s2">
           <button
             class="waves-effect waves-light btn-small red right-align delTodo"
-            data-id="{{todo.id}}"
+            data-id="{{d.id}}"
             type="submit"
           >
             <i class="material-icons">delete</i>
