@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from config import config
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -9,10 +10,10 @@ login_manager = LoginManager()
 login_manager.login_view = "auth.login"
 
 
-def create_app():
+def create_app(config_name):
     """Initialize the core application."""
     app = Flask(__name__, instance_relative_config=False)
-    app.config.from_object('config.Config')
+    app.config.from_object(config[config_name])
 
     from .models import User, Todo
     from .views import views
