@@ -2,7 +2,7 @@
 %}
 
 <div class="row">
-  <form class="col s6" , method="POST">
+  <form class="grid-2" , method="POST">
     {{ form.csrf_token }}
     <div class="row valign-wrapper">
       <div class="input-field col s6">
@@ -20,7 +20,7 @@
     </div>
   </form>
 
-  <ul class="collection with-header col s6">
+  <ul class="collection with-header grid-2">
     <li class="collection-header"><h4>To Do List</h4></li>
     {% for d in data %}
     <li class="collection-item">

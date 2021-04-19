@@ -72,3 +72,9 @@ html {
 button > * {
   pointer-events: none;
 }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+}
