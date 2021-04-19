@@ -33,8 +33,8 @@ pip install requirements.txt
 
 ```
 # Option 1:
-## Open the config.py file and change the SQLALCHEMY_DATABASE_URI attribute of the DevelopmentConfig
-## class to point to your database.
+## Open the config.py file and change the SQLALCHEMY_DATABASE_URI attribute of the 
+## DevelopmentConfig class to point to your database.
 ## Use the following pattern: 
 postgresql://your_user:your_password@localhost:5432/your_database
 
