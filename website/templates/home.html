@@ -1,64 +1,61 @@
 {% extends "base.html" %} {% block title %} Main {% endblock %} {% block content
 %}
-<div class="grid-2">
-  <div class="row">
-    <form class="col s6" , method="POST">
-      {{ form.csrf_token }}
-      <div class="row valign-wrapper">
-        <div class="input-field col s6">
-          <label for="{{form.todo.id}}">{{form.todo.label}}</label>
-          {{form.todo(class_ = 'validate materialize-textarea textarea')}}
+<div class="main-view">
+  <form class="task-form" , method="POST">
+    {{ form.csrf_token }}
+    <div class="row valign-wrapper">
+      <div class="input-field">
+        <label for="{{form.todo.id}}">{{form.todo.label}}</label>
+        {{form.todo(class_ = 'validate materialize-textarea textarea')}}
+      </div>
+
+      <button
+        type="submit"
+        class="btn-floating btn-small waves-effect waves-light red"
+      >
+        <i class="material-icons">add</i>
+      </button>
+    </div>
+  </form>
+
+  <ul class="collection with-header task-list">
+    <li class="collection-header"><h4>To Do List</h4></li>
+    {% for d in data %}
+    <li class="collection-item">
+      <div class="item-container">
+        <div class="item-elemnt">
+          <label>
+            <input
+              type="checkbox"
+              {%
+              if
+              d.completed
+              %}
+              checked
+              {%
+              endif
+              %}
+              class="check-completed"
+              data-id="{{d.id}}"
+            />
+            <span class="{% if d.completed %} task-completed {% endif %}">
+              {{d.task}}
+            </span>
+          </label>
         </div>
-        <div class="container">
+        <div class="delete-container">
           <button
+            class="waves-effect waves-light btn-small red right-align delTodo"
+            data-id="{{d.id}}"
             type="submit"
-            class="btn-floating btn-small waves-effect waves-light red"
           >
-            <i class="material-icons">add</i>
+            <i class="material-icons">delete</i>
           </button>
         </div>
       </div>
-    </form>
-
-    <ul class="collection with-header col s6">
-      <li class="collection-header"><h4>To Do List</h4></li>
-      {% for d in data %}
-      <li class="collection-item">
-        <div class="row valign-wrapper">
-          <div class="col s10">
-            <label>
-              <input
-                type="checkbox"
-                {%
-                if
-                d.completed
-                %}
-                checked
-                {%
-                endif
-                %}
-                class="check-completed"
-                data-id="{{d.id}}"
-              />
-              <span class="{% if d.completed %} task-completed {% endif %}">
-                {{d.task}}
-              </span>
-            </label>
-          </div>
-          <div class="col s2">
-            <button
-              class="waves-effect waves-light btn-small red right-align delTodo"
-              data-id="{{d.id}}"
-              type="submit"
-            >
-              <i class="material-icons">delete</i>
-            </button>
-          </div>
-        </div>
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
+    </li>
+    {% endfor %}
+  </ul>
 </div>
 
 {% endblock %}

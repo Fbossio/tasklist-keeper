@@ -73,8 +73,48 @@ button > * {
   pointer-events: none;
 }
 
-.grid-2 {
+.main-view {
+  /*
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  */
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 2rem;
+}
+
+.task-form {
+  flex: 1 1 28rem;
+}
+
+.task-list {
+  flex: 1 1 28rem;
+}
+
+.item-container {
+  display: grid;
+  grid-template-columns: 10fr 2fr;
+}
+
+@media (max-width: 994px) {
+  .main-view {
+    display: block;
+  }
+}
+
+@media (max-width: 500px) {
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  .sec-title {
+    font-size: 1.1 rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .logo-text {
+    display: none;
+  }
 }

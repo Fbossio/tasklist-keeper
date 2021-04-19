@@ -8,8 +8,6 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config:
     """Set Flask config variables."""
 
-    #FLASK_ENV = 'development'
-    #TESTING = True
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'my_secret_key'
     STATIC_FOLDER = 'static'
     TEMPLATES_FOLDER = 'templates'
@@ -21,7 +19,7 @@ class DevelopmentConfig(Config):
     FLASK_ENV = 'development'
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get(
-        'DEV_DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, 'dev_database.db')
+        'DEV_DATABASE_URL') or 'postgresql://postgres:postgres@localhost:5432/todo'
 
 
 class ProductionConfig(Config):
