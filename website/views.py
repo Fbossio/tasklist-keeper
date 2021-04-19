@@ -25,7 +25,7 @@ def home():
     else:
         flash_errors(form)
 
-    return render_template('home.html', form=form, user=current_user data=Todo.query.filter_by(user_id=current_user.id).order_by('id').all())
+    return render_template('home.html', form=form, user=current_user, data=Todo.query.filter_by(user_id=current_user.id).order_by('id').all())
 
 
 @views.route('/delete-todo/<todoId>', methods=['DELETE'])
