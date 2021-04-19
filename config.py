@@ -27,8 +27,8 @@ class DevelopmentConfig(Config):
 class ProductionConfig(Config):
     FLASK_ENV = 'production'
     SECRET_KEY = os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = os.environ.get(
-        'DATABASE_URL') or os.path.join(basedir, 'database.db')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL').replace(
+        "://", "ql://", 1) or os.path.join(basedir, 'database.db')
 
 
 config = {
