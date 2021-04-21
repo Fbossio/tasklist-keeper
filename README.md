@@ -26,7 +26,7 @@ source venv/bin/activate
 3. Install dependencies
 
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 4. Create a postgres database locally and set and environmental variable `DEV_DATABASE_URL`
